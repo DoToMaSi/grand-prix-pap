@@ -1,59 +1,116 @@
-# GrandPrixPap
+# Grand Prix Pap — Portal Oficial
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+> Evento especial único no **Assetto Corsa** com o carro **Formula Grand Prix** — uma homenagem visual e sensorial ao clássico **Grand Prix 3**, com física acessível e pilotagem ágil.  
+> Organizado pela comunidade **CAMPAP®**.
 
-## Development server
+🌐 **[dotomasi.github.io/grand-prix-pap](https://dotomasi.github.io/grand-prix-pap)**  
+📦 **[github.com/DoToMaSi/grand-prix-pap](https://github.com/DoToMaSi/grand-prix-pap)**
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Sobre o evento
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+O **Grand Prix Pap** é um evento one-off da CAMPAP: uma corrida em **Interlagos** com carro de F1 inspirado no GP3, setup fechado e regras simplificadas (10 min de qualify + 30 min de corrida).
 
-## Code scaffolding
+Este repositório contém o **site oficial** do evento — página única com informações, downloads (carro e pista), regulamento e inscrição.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## Stack
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+| Camada | Tecnologia |
+|--------|-----------|
+| Framework | Angular 20 (Standalone, Signals, Zoneless) |
+| Estilos | Tailwind CSS v4 + DaisyUI v5 (`grandprixpap` theme) |
+| Fonte | Michroma |
+| Deploy | GitHub Pages via GitHub Actions |
+| URL | `https://dotomasi.github.io/grand-prix-pap/` |
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Funcionalidades
 
-To build the project run:
+- **Splash screen** com logo e botão Entrar
+- **Hero animado** — backgrounds rotativos com pan, filtro CRT e crossfade
+- **Carro & Pista** — grid de equipes F1 2002, preview de Interlagos, botão de download
+- **Inscrição** — regulamento resumido com aceite obrigatório antes do botão de inscrição
+- **Mini-player** de música (trilhas GP3) com shuffle e metadados ID3
+- **SFX** de hover e clique nos botões
+- **Navbar** com scroll suave para Downloads e Inscrição
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Desenvolvimento local
 
 ```bash
-ng e2e
+# Instalar dependências
+npm ci
+
+# Servidor de desenvolvimento (http://localhost:4200)
+npm start
+
+# Build de produção
+npm run build:prod
+
+# Testes unitários
+npm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Deploy
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+O deploy é automático via **GitHub Actions** ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) em todo push para a branch `master`:
+
+1. `npm ci` — instala dependências
+2. `npm run build:prod -- --base-href=/grand-prix-pap/` — build otimizado para GitHub Pages
+3. `404.html` copiado de `index.html` (fallback SPA)
+4. Publicação no ambiente `github-pages`
+
+**Configuração única no GitHub:** Settings → Pages → Source: **GitHub Actions**.
+
+---
+
+## Estrutura do projeto
+
+```
+src/
+├── app/
+│   ├── core/config/       # Música, backgrounds, equipes, SFX
+│   └── shared/
+│       ├── components/    # Splash, Header, Hero, CarTrack, Signup, Footer, MiniPlayer
+│       └── services/      # MusicPlayer, HeroBackground, Sfx, ButtonSfx
+├── assets/
+│   ├── car-previews/    # Previews das 11 equipes F1 2002
+│   ├── fonts/           # Michroma
+│   ├── images/          # Backgrounds do hero
+│   ├── logos/           # GPPAP logo e ícone
+│   ├── music/           # Trilhas do mini-player
+│   ├── sfx/             # hover.wav, click.wav
+│   └── track-preview/   # Interlagos preview + layout
+└── index.html           # Meta tags SEO
+public/
+└── favicon.ico
+```
+
+---
+
+## Repositório
+
+| | |
+|---|---|
+| **GitHub** | [github.com/DoToMaSi/grand-prix-pap](https://github.com/DoToMaSi/grand-prix-pap) |
+| **Issues** | [github.com/DoToMaSi/grand-prix-pap/issues](https://github.com/DoToMaSi/grand-prix-pap/issues) |
+| **Site** | [dotomasi.github.io/grand-prix-pap](https://dotomasi.github.io/grand-prix-pap) |
+
+---
+
+## Autor
+
+**Rockett Sally | [DoToMaSi](https://github.com/DoToMaSi)** — desenvolvido com ❤️ em Curitiba.
+
+---
+
+## Licença
+
+Projeto privado / uso interno CAMPAP. Todos os direitos reservados.
