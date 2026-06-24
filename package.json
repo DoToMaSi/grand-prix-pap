@@ -1,6 +1,33 @@
 {
   "name": "grand-prix-pap",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Portal oficial do Grand Prix Pap — evento especial CAMPAP no Assetto Corsa com o carro Formula Grand Prix (homenagem ao Grand Prix 3) em Interlagos.",
+  "homepage": "https://dotomasi.github.io/grand-prix-pap/",
+  "author": {
+    "name": "Rockett Sally | DoToMaSi",
+    "url": "https://github.com/DoToMaSi"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DoToMaSi/grand-prix-pap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DoToMaSi/grand-prix-pap/issues"
+  },
+  "keywords": [
+    "grand-prix-pap",
+    "gpp",
+    "campap",
+    "assetto-corsa",
+    "grand-prix-3",
+    "gp3",
+    "formula-grand-prix",
+    "interlagos",
+    "f1-2002",
+    "simracing",
+    "angular"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

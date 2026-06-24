@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dotomasi.github.io/grand-prix-pap/sitemap.xml
