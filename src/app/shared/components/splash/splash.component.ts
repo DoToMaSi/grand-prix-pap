@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -9,5 +9,17 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrl: './splash.component.css',
 })
 export class SplashComponent {
-  readonly enter = output<void>();
+  readonly finished = output<void>();
+
+  protected readonly leaving = signal(false);
+
+  onEnter(): void {
+    if (this.leaving()) return;
+    this.leaving.set(true);
+  }
+
+  onFadeOutEnd(event: TransitionEvent): void {
+    if (event.propertyName !== 'opacity' || !this.leaving()) return;
+    this.finished.emit();
+  }
 }

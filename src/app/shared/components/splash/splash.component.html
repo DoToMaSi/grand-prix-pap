@@ -1,15 +1,24 @@
-<div class="splash">
-  <div class="splash-content">
+<div
+  class="splash"
+  [class.splash-leaving]="leaving()"
+  (transitionend)="onFadeOutEnd($event)"
+>
+  <div class="splash-content" [class.splash-content-leaving]="leaving()">
     <img
       ngSrc="assets/logos/GPPAP-logo.png"
       alt="Grand Prix Pap"
-      width="640"
-      height="320"
+      width="2048"
+      height="866"
       priority
       class="splash-logo"
     />
-    <button type="button" class="btn btn-primary btn-lg splash-enter" (click)="enter.emit()">
-      Enter
+    <button
+      type="button"
+      class="btn btn-primary btn-lg splash-enter"
+      [disabled]="leaving()"
+      (click)="onEnter()"
+    >
+      Entrar
     </button>
   </div>
 </div>

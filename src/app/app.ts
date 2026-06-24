@@ -24,11 +24,13 @@ import { MusicPlayerService } from '@shared/services/music-player.service';
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly entered = signal(false);
+  protected readonly showSplash = signal(true);
+  protected readonly siteVisible = signal(false);
   private readonly musicPlayer = inject(MusicPlayerService);
 
-  onEnter(): void {
-    this.entered.set(true);
+  onSplashFinished(): void {
+    this.showSplash.set(false);
+    this.siteVisible.set(true);
     this.musicPlayer.startPlayback();
   }
 }

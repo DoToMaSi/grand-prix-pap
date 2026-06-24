@@ -1,6 +1,6 @@
 <section id="signup" class="section-padding">
   <div class="text-center mb-10">
-    <h2 class="subtitle-text">Sign-up</h2>
+    <h2 class="subtitle-text">Inscrição</h2>
     <p class="text-warning font-bold italic mt-4 text-sm md:text-base">
       ANTES DE SE INSCREVER, LEIA O REGULAMENTO ABAIXO!
     </p>
@@ -20,11 +20,11 @@
 
       <h3 class="reg-h3">Horários</h3>
       <ul class="reg-schedule mb-4">
-        <li><span class="reg-time">TBD</span> Server aberto</li>
-        <li><span class="reg-time">TBD</span> Briefing</li>
-        <li><span class="reg-time">TBD</span> Qualify (10 min)</li>
-        <li><span class="reg-time">TBD</span> Corrida (30 min)</li>
-        <li><span class="reg-time">TBD</span> Encerramento</li>
+        <li><span class="reg-time">A definir</span> Servidor aberto</li>
+        <li><span class="reg-time">A definir</span> Briefing</li>
+        <li><span class="reg-time">A definir</span> Qualify (10 min)</li>
+        <li><span class="reg-time">A definir</span> Corrida (30 min)</li>
+        <li><span class="reg-time">A definir</span> Encerramento</li>
       </ul>
       <p class="reg-note mb-4">
         <strong>Respeitem os horários de Qualify e Corrida!</strong> Quem não conseguir entrar a tempo pode perder a sessão.
@@ -43,7 +43,7 @@
 
       <h3 class="reg-h3">Normas Gerais</h3>
       <ul class="reg-list mb-4">
-        <li>Dirija com respeito — acidentes acontecem, mas wrecking intencional não será tolerado.</li>
+        <li>Dirija com respeito — acidentes acontecem, mas batidas intencionais não serão toleradas.</li>
         <li>Use exclusivamente o carro e a pista disponibilizados para download neste site.</li>
         <li>Em caso de problemas na largada, a organização pode autorizar restart (máximo 2 vezes).</li>
         <li>Decisões da organização são finais.</li>
@@ -58,7 +58,7 @@
           [checked]="acceptedRegulations()"
           (change)="acceptedRegulations.set($any($event.target).checked)"
         />
-        <span class="text-sm text-base-content/90">I've read and understood the regulations</span>
+        <span class="text-sm text-base-content/90">Li e compreendi o regulamento</span>
       </label>
 
       <div class="flex flex-col items-center gap-2">
@@ -68,7 +68,7 @@
           [disabled]="!canSignUp()"
           [class.btn-disabled]="!canSignUp()"
         >
-          Sign-up
+          Inscrever-se
         </button>
         @if (canSignUp()) {
           <p class="text-sm text-base-content/50 italic">Link em breve</p>

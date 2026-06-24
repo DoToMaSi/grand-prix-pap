@@ -1,6 +1,4 @@
-@if (!entered()) {
-  <app-splash (enter)="onEnter()" />
-} @else {
+<div class="site-shell" [class.site-visible]="siteVisible()">
   <app-mini-player />
   <app-header />
   <main class="pt-16">
@@ -9,4 +7,8 @@
     <app-signup />
   </main>
   <app-footer />
+</div>
+
+@if (showSplash()) {
+  <app-splash (finished)="onSplashFinished()" />
 }

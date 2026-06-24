@@ -1,28 +1,27 @@
 <section id="downloads" class="section-padding bg-base-200/50">
   <div class="text-center mb-12">
-    <h2 class="subtitle-text">Car &amp; Track</h2>
+    <h2 class="subtitle-text">Carro &amp; Pista</h2>
     <p class="text-base-content/70 mt-3 max-w-2xl mx-auto text-sm md:text-base">
-      Download the Formula Grand Prix car and race at Interlagos — a one-off special event built for the CAMPAP community.
+      Baixe o carro Formula Grand Prix e corra em Interlagos — um evento especial único da comunidade CAMPAP.
     </p>
   </div>
 
   <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-    <!-- Car -->
     <div>
       <h3 class="text-xl font-bold text-primary mb-2">Formula Grand Prix</h3>
       <p class="text-base-content/70 text-sm mb-6">
-        A Formula 1 car replicating the visuals and feel of the classic Grand Prix 3 PC game — forgiving physics, agile handling, and all 2002-era teams available.
+        Um carro de Fórmula 1 que replica o visual e a sensação do clássico Grand Prix 3 — física acessível, pilotagem ágil e todas as equipes da temporada de 2002 disponíveis.
       </p>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
         @for (team of teams; track team.id) {
           <div class="card bg-base-100 shadow-md team-card overflow-hidden">
-            <figure class="aspect-[4/3] overflow-hidden bg-base-300">
+            <figure class="aspect-video overflow-hidden bg-base-300">
               <img
                 [ngSrc]="team.previewPath"
                 [alt]="team.team"
-                width="320"
-                height="240"
+                width="1920"
+                height="1080"
                 class="w-full h-full object-cover"
               />
             </figure>
@@ -34,11 +33,10 @@
       </div>
     </div>
 
-    <!-- Track -->
     <div>
       <h3 class="text-xl font-bold text-primary mb-2">Autódromo de Interlagos</h3>
       <p class="text-base-content/70 text-sm mb-6">
-        The legendary Brazilian circuit — home of countless F1 classics, now available for this special event.
+        O lendário circuito brasileiro — palco de incontáveis clássicos da F1, agora disponível para este evento especial.
       </p>
 
       <div class="track-card">
@@ -48,9 +46,9 @@
         ></div>
         <img
           ngSrc="assets/track-preview/track.png"
-          alt="Interlagos track layout"
-          width="800"
-          height="450"
+          alt="Layout do Autódromo de Interlagos"
+          width="256"
+          height="256"
           class="track-card-outline"
         />
       </div>
@@ -59,8 +57,8 @@
 
   <div class="mt-16 flex flex-col items-center gap-3">
     <button type="button" class="btn btn-primary btn-lg px-12" disabled>
-      Download (Car and Track)
+      Download (Carro e Pista)
     </button>
-    <p class="text-sm text-base-content/50 italic">Em breve — links coming soon</p>
+    <p class="text-sm text-base-content/50 italic">Em breve</p>
   </div>
 </section>
