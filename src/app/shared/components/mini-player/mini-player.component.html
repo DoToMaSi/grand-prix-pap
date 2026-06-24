@@ -1,0 +1,88 @@
+<div class="player-wrapper" [class.collapsed]="!player.isOpen()">
+
+  <button class="player-tab" (click)="player.toggleOpen()"
+    [title]="player.isOpen() ? 'Ocultar player' : 'Mostrar player'">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+      <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z" />
+    </svg>
+  </button>
+
+  <div class="mini-player">
+
+    <p class="text-primary font-bold text-sm">GOSASTRAX</p>
+
+    <hr />
+
+    <div class="player-row player-info">
+      @if (player.displayCoverUrl()) {
+      <img class="track-cover" [src]="player.displayCoverUrl()" alt="Capa do álbum" />
+      } @else {
+      <span class="track-icon">&#9835;</span>
+      }
+      <span class="track-details">
+        @if (player.isLoadingMeta()) {
+        <div class="skeleton-loading">
+          <span class="skeleton-line skeleton-artist"></span>
+          <span class="skeleton-line skeleton-title"></span>
+          <span class="skeleton-line skeleton-album"></span>
+        </div>
+        } @else {
+        @if (player.displayArtist()) {
+        <span class="track-artist">{{ player.displayArtist() }}</span>
+        }
+        <span class="track-name">{{ player.displayTitle() }}</span>
+        @if (player.displayAlbum()) {
+        <span class="track-album">{{ player.displayAlbum() }}</span>
+        }
+        }
+      </span>
+      <span class="track-time">{{ player.elapsed() }} / {{ player.duration() }}</span>
+    </div>
+
+    <div class="player-row">
+      <input type="range" class="player-range progress-range" min="0" max="100" step="0.1" [value]="player.progress()"
+        (input)="onSeek($event)" />
+    </div>
+
+    <div class="player-row player-controls">
+      <div class="controls">
+        <button class="ctrl-btn" (click)="player.previous()" title="Anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" />
+          </svg>
+        </button>
+        <button class="ctrl-btn" (click)="player.toggleMusic()" [title]="player.isPlaying() ? 'Pausar' : 'Tocar'">
+          @if (!player.isPlaying()) {
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          } @else {
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M6 19h4V5H6zm8-14v14h4V5z" />
+          </svg>
+          }
+        </button>
+        <button class="ctrl-btn" (click)="player.stopMusic()" title="Parar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M6 6h12v12H6z" />
+          </svg>
+        </button>
+        <button class="ctrl-btn" (click)="player.next()" title="Próxima">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M6 18l8.5-6L6 6v12zm8.5-6v6h2V6h-2v6z" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="volume">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"
+          class="vol-icon">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+        </svg>
+        <input type="range" class="player-range volume-range" min="0" max="1" step="0.01" [(ngModel)]="volume"
+          (input)="onVolumeChange()" />
+      </div>
+    </div>
+
+  </div>
+</div>

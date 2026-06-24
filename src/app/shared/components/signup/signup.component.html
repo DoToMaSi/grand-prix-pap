@@ -1,0 +1,80 @@
+<section id="signup" class="section-padding">
+  <div class="text-center mb-10">
+    <h2 class="subtitle-text">Inscrição</h2>
+    <p class="text-warning font-bold italic mt-4 text-sm md:text-base">
+      ANTES DE SE INSCREVER, LEIA O REGULAMENTO ABAIXO!
+    </p>
+  </div>
+
+  <div class="card bg-base-200 shadow-lg max-w-3xl mx-auto">
+    <div class="card-body p-6 md:p-10 regulation">
+
+      <p class="text-center text-sm opacity-60 mb-6">
+        Grand Prix Pap — Regulamento v1
+      </p>
+
+      <h3 class="reg-h2">Formato do Evento</h3>
+      <p class="text-base-content/80 mb-4">
+        Evento especial único no Assetto Corsa. Uma sessão de classificação seguida de corrida principal.
+      </p>
+
+      <h3 class="reg-h3">Horários</h3>
+      <ul class="reg-schedule mb-4">
+        <li><span class="reg-time">A definir</span> Servidor aberto</li>
+        <li><span class="reg-time">A definir</span> Briefing</li>
+        <li><span class="reg-time">A definir</span> Qualify (10 min)</li>
+        <li><span class="reg-time">A definir</span> Corrida (30 min)</li>
+        <li><span class="reg-time">A definir</span> Encerramento</li>
+      </ul>
+      <p class="reg-note mb-4">
+        <strong>Respeitem os horários de Qualify e Corrida!</strong> Quem não conseguir entrar a tempo pode perder a sessão.
+      </p>
+
+      <h3 class="reg-h3">Configuração</h3>
+      <ul class="reg-list mb-4">
+        <li><strong>Setup:</strong> Fechado</li>
+        <li><strong>Largada:</strong> Parada</li>
+        <li><strong>Escala de Tempo:</strong> Normal</li>
+        <li><strong>Condições da Pista:</strong> Decente</li>
+        <li><strong>Consumo de Combustível:</strong> 1x</li>
+        <li><strong>Consumo de Pneus:</strong> 1.25x</li>
+        <li><strong>Assistências:</strong> Conforme padrão do carro</li>
+      </ul>
+
+      <h3 class="reg-h3">Normas Gerais</h3>
+      <ul class="reg-list mb-4">
+        <li>Dirija com respeito — acidentes acontecem, mas batidas intencionais não serão toleradas.</li>
+        <li>Use exclusivamente o carro e a pista disponibilizados para download neste site.</li>
+        <li>Em caso de problemas na largada, a organização pode autorizar restart (máximo 2 vezes).</li>
+        <li>Decisões da organização são finais.</li>
+      </ul>
+
+      <hr class="my-8 border-base-content/10" />
+
+      <label class="flex items-start gap-3 cursor-pointer mb-6">
+        <input
+          type="checkbox"
+          class="checkbox checkbox-primary mt-0.5"
+          [checked]="acceptedRegulations()"
+          (change)="acceptedRegulations.set($any($event.target).checked)"
+        />
+        <span class="text-sm text-base-content/90">Li e compreendi o regulamento</span>
+      </label>
+
+      <div class="flex flex-col items-center gap-2">
+        <button
+          type="button"
+          class="btn btn-secondary btn-lg px-12"
+          [disabled]="!canSignUp()"
+          [class.btn-disabled]="!canSignUp()"
+        >
+          Inscrever-se
+        </button>
+        @if (canSignUp()) {
+          <p class="text-sm text-base-content/50 italic">Link em breve</p>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,109 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg-stack {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hero-bg-active {
+  opacity: 1;
+}
+
+.hero-bg-pan {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) translateX(0);
+  will-change: transform;
+}
+
+.hero-bg-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  max-width: none;
+  filter: saturate(0.55) contrast(1.12) brightness(0.9);
+}
+
+.hero-crt {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    oklch(0 0 0 / 0) 0px,
+    oklch(0 0 0 / 0) 2px,
+    oklch(0 0 0 / 0.14) 2px,
+    oklch(0 0 0 / 0.14) 4px
+  );
+  box-shadow: inset 0 0 80px oklch(0 0 0 / 0.5);
+}
+
+.hero-crt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    oklch(0 0 0 / 0) 45%,
+    oklch(0 0 0 / 0.3) 100%
+  );
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: oklch(0 0 0 / 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 6rem 1.5rem 4rem;
+}
+
+.hero-logo {
+  width: min(85vw, 520px);
+  height: auto;
+  filter: drop-shadow(0 8px 32px oklch(0 0 0 / 0.6));
+}
+
+.hero-tagline {
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-pan {
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    height: 100% !important;
+  }
+
+  .hero-bg-img {
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+  }
+}

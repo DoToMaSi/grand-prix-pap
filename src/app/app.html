@@ -1,5 +1,14 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="site-shell" [class.site-visible]="siteVisible()">
+  <app-mini-player />
+  <app-header />
+  <main class="pt-16">
+    <app-hero />
+    <app-car-track />
+    <app-signup />
+  </main>
+  <app-footer />
+</div>
 
-<router-outlet />
+@if (showSplash()) {
+  <app-splash (finished)="onSplashFinished()" />
+}
