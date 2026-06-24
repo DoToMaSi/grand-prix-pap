@@ -1,0 +1,27 @@
+<section class="hero">
+  <div
+    class="hero-bg"
+    [class.hero-bg-active]="bg.activeLayer() === 'a'"
+    [style.backgroundImage]="'url(' + bg.backgroundA() + ')'"
+  ></div>
+  <div
+    class="hero-bg"
+    [class.hero-bg-active]="bg.activeLayer() === 'b'"
+    [style.backgroundImage]="'url(' + bg.backgroundB() + ')'"
+  ></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <img
+      ngSrc="assets/logos/GPPAP-logo.png"
+      alt="Grand Prix Pap"
+      width="640"
+      height="320"
+      priority
+      class="hero-logo"
+    />
+    <p class="hero-tagline banner-subtitle text-center text-base md:text-xl max-w-2xl">
+      Formula Grand Prix — a tribute to Grand Prix 3, with forgiving physics and agile handling for accessible, exciting racing.
+    </p>
+  </div>
+</section>

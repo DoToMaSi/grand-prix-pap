@@ -1,5 +1,12 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
-
-<router-outlet />
+@if (!entered()) {
+  <app-splash (enter)="onEnter()" />
+} @else {
+  <app-mini-player />
+  <app-header />
+  <main class="pt-16">
+    <app-hero />
+    <app-car-track />
+    <app-signup />
+  </main>
+  <app-footer />
+}

@@ -1,0 +1,66 @@
+<section id="downloads" class="section-padding bg-base-200/50">
+  <div class="text-center mb-12">
+    <h2 class="subtitle-text">Car &amp; Track</h2>
+    <p class="text-base-content/70 mt-3 max-w-2xl mx-auto text-sm md:text-base">
+      Download the Formula Grand Prix car and race at Interlagos — a one-off special event built for the CAMPAP community.
+    </p>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+    <!-- Car -->
+    <div>
+      <h3 class="text-xl font-bold text-primary mb-2">Formula Grand Prix</h3>
+      <p class="text-base-content/70 text-sm mb-6">
+        A Formula 1 car replicating the visuals and feel of the classic Grand Prix 3 PC game — forgiving physics, agile handling, and all 2002-era teams available.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        @for (team of teams; track team.id) {
+          <div class="card bg-base-100 shadow-md team-card overflow-hidden">
+            <figure class="aspect-[4/3] overflow-hidden bg-base-300">
+              <img
+                [ngSrc]="team.previewPath"
+                [alt]="team.team"
+                width="320"
+                height="240"
+                class="w-full h-full object-cover"
+              />
+            </figure>
+            <div class="card-body p-3">
+              <p class="text-xs text-center text-base-content/90 leading-tight">{{ team.team }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Track -->
+    <div>
+      <h3 class="text-xl font-bold text-primary mb-2">Autódromo de Interlagos</h3>
+      <p class="text-base-content/70 text-sm mb-6">
+        The legendary Brazilian circuit — home of countless F1 classics, now available for this special event.
+      </p>
+
+      <div class="track-card">
+        <div
+          class="track-card-bg"
+          style="background-image: url('assets/track-preview/preview.png')"
+        ></div>
+        <img
+          ngSrc="assets/track-preview/track.png"
+          alt="Interlagos track layout"
+          width="800"
+          height="450"
+          class="track-card-outline"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-16 flex flex-col items-center gap-3">
+    <button type="button" class="btn btn-primary btn-lg px-12" disabled>
+      Download (Car and Track)
+    </button>
+    <p class="text-sm text-base-content/50 italic">Em breve — links coming soon</p>
+  </div>
+</section>

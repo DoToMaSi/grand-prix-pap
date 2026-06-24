@@ -1,0 +1,10 @@
+.regulation {
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .regulation {
+    font-size: 0.9375rem;
+  }
+}
