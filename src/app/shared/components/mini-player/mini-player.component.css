@@ -39,7 +39,7 @@
 }
 
 .mini-player {
-  width: 280px;
+  width: 356px;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -118,26 +118,40 @@
 }
 
 @keyframes skeleton-shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .skeleton-line {
   display: block;
   border-radius: 9999px;
-  background: linear-gradient(
-    90deg,
-    color-mix(in oklch, var(--color-base-content) 8%, transparent) 25%,
-    color-mix(in oklch, var(--color-base-content) 20%, transparent) 50%,
-    color-mix(in oklch, var(--color-base-content) 8%, transparent) 75%
-  );
+  background: linear-gradient(90deg,
+      color-mix(in oklch, var(--color-base-content) 8%, transparent) 25%,
+      color-mix(in oklch, var(--color-base-content) 20%, transparent) 50%,
+      color-mix(in oklch, var(--color-base-content) 8%, transparent) 75%);
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.4s ease-in-out infinite;
 }
 
-.skeleton-artist { height: 0.6rem;  width: 55%; }
-.skeleton-title  { height: 0.55rem; width: 80%; }
-.skeleton-album  { height: 0.45rem; width: 42%; }
+.skeleton-artist {
+  height: 0.6rem;
+  width: 55%;
+}
+
+.skeleton-title {
+  height: 0.55rem;
+  width: 80%;
+}
+
+.skeleton-album {
+  height: 0.45rem;
+  width: 42%;
+}
 
 .track-time {
   font-size: 0.65rem;
