@@ -1,15 +1,29 @@
 <section class="hero">
   <div class="hero-bg-stack">
-    <div
-      class="hero-bg"
-      [class.hero-bg-active]="bg.activeLayer() === 'a'"
-      [style.backgroundImage]="cssUrl(bg.backgroundA())"
-    ></div>
-    <div
-      class="hero-bg"
-      [class.hero-bg-active]="bg.activeLayer() === 'b'"
-      [style.backgroundImage]="cssUrl(bg.backgroundB())"
-    ></div>
+    <div class="hero-bg" [class.hero-bg-active]="bg.activeLayer() === 'a'">
+      <div class="hero-bg-pan" #panA>
+        <img
+          #imgA
+          [src]="bg.backgroundA()"
+          alt=""
+          class="hero-bg-img"
+          draggable="false"
+          (load)="onImageReady('a')"
+        />
+      </div>
+    </div>
+    <div class="hero-bg" [class.hero-bg-active]="bg.activeLayer() === 'b'">
+      <div class="hero-bg-pan" #panB>
+        <img
+          #imgB
+          [src]="bg.backgroundB()"
+          alt=""
+          class="hero-bg-img"
+          draggable="false"
+          (load)="onImageReady('b')"
+        />
+      </div>
+    </div>
     <div class="hero-crt" aria-hidden="true"></div>
   </div>
 
